@@ -28,6 +28,10 @@ export const generateMetadata = async ({
 };
 
 export default function ProductDetails({ params }: Props) {
+  if (params?.productId && parseInt(params?.productId) % 3 == 0) {
+    throw new Error(`Error loading product with id: ${params?.productId}`);
+  }
+
   if (params?.productId && parseInt(params?.productId) > 9) {
     return notFound();
   }
