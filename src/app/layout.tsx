@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        {children}
+        <div className="mx-auto container mt-8">{children}</div>
       </body>
     </html>
   );

@@ -1,9 +1,13 @@
 export default function Analytics() {
-  throw new Error("Error loading analytics");
+  const randomNumber = Math.floor(Math.random() * 10 + 1);
 
-  //   return (
-  //     <>
-  //       <h1 className="text-3xl">Analytics</h1>
-  //     </>
-  //   );
+  if (randomNumber % 2 == 0) {
+    throw new Error("Error loading analytics");
+  }
+
+  return (
+    <>
+      <h1 className="text-3xl">Analytics</h1>
+    </>
+  );
 }

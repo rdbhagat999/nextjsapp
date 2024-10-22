@@ -13,12 +13,16 @@ export default function ParallelRoutesLayout({
   analytics,
   revenue,
   notifications,
+  login,
 }: {
   children: React.ReactNode;
   analytics: React.ReactNode;
   revenue: React.ReactNode;
   notifications: React.ReactNode;
+  login: React.ReactNode;
 }) {
+  const isLoggedIn = false;
+
   return (
     <>
       <div className="mx-auto container mt-8">
@@ -27,11 +31,17 @@ export default function ParallelRoutesLayout({
         <div className="mt-10">{children}</div>
 
         <div className="mt-10 flex gap-2 flex-grow">
-          <div className="flex flex-col gap-2">
-            <SlotWrapper>{analytics}</SlotWrapper>
-            <SlotWrapper>{revenue}</SlotWrapper>
-          </div>
-          <SlotWrapper>{notifications}</SlotWrapper>
+          {isLoggedIn ? (
+            <>
+              <div className="flex flex-col gap-2">
+                <SlotWrapper>{analytics}</SlotWrapper>
+                <SlotWrapper>{revenue}</SlotWrapper>
+              </div>
+              <SlotWrapper>{notifications}</SlotWrapper>
+            </>
+          ) : (
+            <SlotWrapper>{login}</SlotWrapper>
+          )}
         </div>
       </div>
     </>
