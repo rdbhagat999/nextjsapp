@@ -12,12 +12,12 @@ export async function GET(
   const found = comments_data.find((item) => item.id === id);
 
   if (!found) {
-    // return Response.json(
-    //   {},
-    //   {
-    //     status: 404,
-    //   }
-    // );
+    // return new Response(null, {
+    //   headers: {
+    //     "Content-type": "Application/json",
+    //   },
+    //   status: 404,
+    // });
 
     return redirect("/comments");
   }
@@ -35,12 +35,12 @@ export async function PATCH(
   let found = comments_data.find((item) => item.id === id);
 
   if (!found) {
-    return Response.json(
-      {},
-      {
-        status: 404,
-      }
-    );
+    return new Response(null, {
+      headers: {
+        "Content-type": "Application/json",
+      },
+      status: 404,
+    });
   }
 
   if (found) {
